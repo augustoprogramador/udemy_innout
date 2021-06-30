@@ -10,6 +10,10 @@
 
     try {
         $currentTime = strftime("%H:%M:%S", time());
+
+        if ($_POST['forcedTime']) {
+            $currentTime = $_POST['forcedTime'];
+        }
     
         $records->innout($currentTime);
         addSuccessMessage('Ponto inserido com sucesso!');
