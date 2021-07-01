@@ -32,6 +32,7 @@
                     <i class=" text-primary icon icofont-hour-glass"></i>
                     <div class="info">
                         <span class="main text-primary">
+                            <?php $activeClock == 'workedInterval' ? 'active-clock' : '' ?>
                             <?php echo $workedInterval ?>
                         </span>
                         <span class="label text-muted">Horas Trabalhadas</span>
@@ -43,7 +44,9 @@
                 <div class="sidebar-widget">
                     <i class=" text-danger icon icofont-ui-alarm"></i>
                     <div class="info">
-                        <span class="main text-danger">
+                        <span class="main text-danger"
+                                <?php $activeClock == 'exitTime' ? 'active-clock' : '' ?>
+                        >
                             <?php echo $exitTime ?>
                         </span>
                         <span class="label text-muted">Hora de Saída</span>
