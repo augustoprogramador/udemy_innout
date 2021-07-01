@@ -64,3 +64,10 @@
         $time = getDateAsDateTime($date)->getTimeStamp();
         return new DateTime(date('Y-m-t', $time));
     }
+
+    function getSecondsFromDateInterval($interval)
+    {
+        $d1 = new DateTimeImmutable();
+        $d2 = $d1->add($interval);
+        return $d2->getTimeStamp() - $d1->getTimeStamp();
+    }
