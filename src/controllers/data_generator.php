@@ -1,7 +1,5 @@
 <?php
 
-    loadModel('WorkingHours');
-
     Database::executeSQL('DELETE FROM working_hours');
     Database::executeSQL('DELETE FROM users WHERE id > 5');
 
@@ -46,11 +44,13 @@
     function populateWorkingHours($userId, $initialDate, $regularRate, $extraRate, $lazyRate)
     {
         $currentDate = $initialDate;
-        $today = new DateTime();
-        $today->modify('+3 days');
+        // $today = new DateTime();
+        $lastDay= date('Y-m-t');
+        // $today->modify('+3 days');
         $columns = ['user_id' => $userId, 'work_date' => $currentDate];
         
-        while (isBefore($currentDate, $today))
+        // while (isBefore($currentDate, $today))
+        while (isBefore($currentDate, $lastDay))
         {
             if (!isWeekend($currentDate)) {
                 $template = getDayTemplateByOdds($regularRate, $extraRate, $lazyRate);
@@ -64,8 +64,8 @@
         }
     }
 
-    $lastMonth = strtotime('first day of last month');
-    // populateWorkingHours(1, date('Y-m-d', $lastMonth), 70, 20, 10);
+    // $lastMonth = strtotime('first day of last month');
+    populateWorkingHours(1, date('Y-m-2'), 70, 20, 10);
     // populateWorkingHours(2, date('Y-m-1'), 20, 75, 5);
     // populateWorkingHours(3, date('Y-m-d', $lastMonth), 20, 70, 10);
 

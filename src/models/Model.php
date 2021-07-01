@@ -93,7 +93,11 @@
                 $sql .= " WHERE 1 = 1";
                 foreach ($filters as $column => $value)
                 {
-                    $sql .= " AND {$column} = " . static::getFormatedValue($value);
+                    if ($column == 'raw') {
+                        $sql .= " AND {$value}";
+                    } else {
+                        $sql .= " AND {$column} = " . static::getFormatedValue($value);
+                    }
                 }
             }
             return $sql;
@@ -120,6 +124,7 @@
             }
 
             return $value;
+            
         }
 
     }

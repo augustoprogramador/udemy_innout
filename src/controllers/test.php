@@ -1,18 +1,18 @@
 <?php
 
-    loadModel('WorkingHours');
-
-    $wh = WorkingHours::loadFromUserAndDate(1, date('Y-m-d'));
+    // $wh = WorkingHours::loadFromUserAndDate(1, date('Y-m-d'));
     
-    echo "<br>";
+    // echo "<br>";
 
-    $workedIntervalString = $wh->getWorkedInterval()->format('%H:%I:%S');
-    print_r($workedIntervalString);
+    // $workedIntervalString = $wh->getWorkedInterval()->format('%H:%I:%S');
+    // print_r($workedIntervalString);
     
-    echo "<br>";
+    // echo "<br>";
 
-    $lunchIntervalString = $wh->getLunchInterval()->format('%H:%I:%S');
-    print_r($lunchIntervalString);
-    echo '<br>';
+    // $lunchIntervalString = $wh->getLunchInterval()->format('%H:%I:%S');
+    // print_r($lunchIntervalString);
+    // echo '<br>';
 
-    print_r($wh->getExitTime());
+    // print_r($wh->getExitTime());
+
+    // print_r(getLastDayOfMonth(new DateTime()));
