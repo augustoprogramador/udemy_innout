@@ -59,7 +59,7 @@
             $sql = "SELECT {$columns} FROM "
             . static::$tableName
             . static::getFilters($filters);
-            
+            // echo $sql; die;
             $result = Database::getResultFromQuery($sql);
 
             if ($result->num_rows === 0)
