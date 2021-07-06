@@ -8,7 +8,7 @@
     ?>
 
     <div>
-        <table class="table table-hover table-striped">
+        <table class="table table-bordered table-hover table-striped">
             <thead>
                 <th>Dia</th>
                 <th>Entrada 1</th>
@@ -20,17 +20,17 @@
             <tbody>
                 <?php foreach($report as $registry): ?>
                     <tr>
-                        <td><?php echo $registry->work_date ?></td>
+                        <td><?php echo formatDateWithLocale($registry->work_date, '%A, %d de %B de %Y') ?></td>
                         <td><?php echo $registry->time1 ?></td>
                         <td><?php echo $registry->time2 ?></td>
                         <td><?php echo $registry->time3 ?></td>
                         <td><?php echo $registry->time4 ?></td>
-                        <td><?php echo "Saldo" ?></td>
+                        <td><?php echo $registry->getBalance() ?></td>
                     </tr>
                 <?php endforeach; ?>
-                <tr>
+                <tr class="bg-primary text-white">
                     <td>Horas trabalhadas</td>
-                    <td><?php echo $sumOfWorkedTime ?></td>
+                    <td colspan="3"><?php echo $sumOfWorkedTime ?></td>
                     <td>Saldo Mensal</td>
                     <td><?php echo $balance ?></td>
                 </tr>
