@@ -41,11 +41,9 @@
     // echo "$workday * " . DAILY_TIME . " = $expectedTime<br>";
     // echo getTimeStringFromSeconds(abs($sumOfWorkedTime - $expectedTime)); die;
     $balance = getTimeStringFromSeconds(abs($sumOfWorkedTime - $expectedTime));
-    // echo "$sign$balance"; die;
-
-
+    
     loadTemplateView('monthly_report', [
         'report' => $report,
-        'sumOfWorkedTime' => $sumOfWorkedTime,
+        'sumOfWorkedTime' => getTimeStringFromSeconds($sumOfWorkedTime),
         'balance' => "{$sign}{$balance}"
     ]);
