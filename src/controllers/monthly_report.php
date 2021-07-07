@@ -19,20 +19,17 @@
         }
     }
 
-    // $registries = WorkingHours::getMonthlyReport($user->id, $currentDate);
     $registries = WorkingHours::getMonthlyReport($user->id, $currentDate);
 
-    // print_r($registries); die;
 
     $report = [];
     $workday = 0;
     $sumOfWorkedTime = 0;
-    $lastDay = getLastDayOfMonth($currentDate)->format('d');
+    $lastDay = getLastDayOfMonth($selectedPeriod)->format('d');
 
     for ($day = 1; $day <= $lastDay; $day++) {
 
-        $date = $currentDate->format('Y-m') . '-' . sprintf('%02d', $day);
-        // print_r($registries[$date]); echo '<br>';
+        $date = $selectedPeriod . '-' . sprintf('%02d', $day);
         $registry = $registries[$date];
 
         if (isPastWorkDay($date)) $workday++;
@@ -51,8 +48,6 @@
 
     $expectedTime = $workday * DAILY_TIME;
     $sign = ($sumOfWorkedTime >= $expectedTime) ? "+" : "-";
-    // echo "$workday * " . DAILY_TIME . " = $expectedTime<br>";
-    // echo getTimeStringFromSeconds(abs($sumOfWorkedTime - $expectedTime)); die;
     $balance = getTimeStringFromSeconds(abs($sumOfWorkedTime - $expectedTime));
     
     loadTemplateView('monthly_report', [
