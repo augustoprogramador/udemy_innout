@@ -20,20 +20,20 @@
                     name="name" 
                     placeholder=""
                     value="<?php echo $name ?>">
-                    <div class="invalid-feeback">
+                    <div class="invalid-feedback">
                         <?php echo $errors['name'] ?>
                     </div>
             </div>
             <div class="form-group col-md-6">
                 <label for="email">E-Mail</label>
                 <input 
-                    type="email" 
+                    type="text" 
                     class="form-control <?php echo $errors['email'] ? 'is-invalid' : '' ?>" 
                     id="email" 
                     name="email" 
                     placeholder=""
                     value="<?php echo $email ?>">
-                    <div class="invalid-feeback">
+                    <div class="invalid-feedback">
                         <?php echo $errors['email'] ?>
                     </div>
             </div>
@@ -48,7 +48,7 @@
                     name="password" 
                     placeholder="">
                     <!-- value="<?php // echo $senha ?>"> -->
-                    <div class="invalid-feeback">
+                    <div class="invalid-feedback">
                         <?php echo $errors['password'] ?>
                     </div>
             </div>
@@ -61,7 +61,7 @@
                     name="confirm_password" 
                     placeholder="">
                     <!-- value="<?php // echo $name ?>"> -->
-                    <div class="invalid-feeback">
+                    <div class="invalid-feedback">
                         <?php echo $errors['confirm_password'] ?>
                     </div>
             </div>
@@ -76,7 +76,7 @@
                     name="start_date" 
                     placeholder=""
                     value="<?php echo $start_date ?>">
-                    <div class="invalid-feeback">
+                    <div class="invalid-feedback">
                         <?php echo $errors['start_date'] ?>
                     </div>
             </div>
@@ -89,7 +89,7 @@
                     name="end_date" 
                     placeholder=""
                     value="<?php echo $end_date ?>">
-                    <div class="invalid-feeback">
+                    <div class="invalid-feedback">
                         <?php echo $errors['end_date'] ?>
                     </div>
             </div>
@@ -105,7 +105,7 @@
                         class="form-check-input <?php echo $errors['is_admin'] ? 'is-invalid' : '' ?>"
                         <?php echo $is_admin ? 'checked' : '' ?>>
                 </div>
-                <div class="invalid-feeback">
+                <div class="invalid-feedback">
                     <?php echo $errors['is_admin'] ?>
                 </div>
             </div>
