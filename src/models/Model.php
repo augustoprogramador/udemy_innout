@@ -84,6 +84,19 @@
             $this->id = $id;
         }
 
+        public function delete()
+        {
+            static::deleteById($this->id);
+        }
+
+        public static function deleteById($id)
+        {
+
+            $sql = "DELETE FROM " . static::$tableName . " WHERE id = $id";
+            Database::executeSQL($sql);
+
+        }
+
         private static function getFilters($filters)
         {
 
