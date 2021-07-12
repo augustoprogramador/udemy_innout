@@ -10,6 +10,7 @@
     ?>
 
     <form action="#" method="post">
+        <input type="hidden" name="id" value="<?php echo $id; ?>">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="name">Nome</label>
